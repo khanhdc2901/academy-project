@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Danh sách khóa học - Academy</title>
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+
+<body> <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-inner"> <a href="index.html" class="logo">ACADEMY</a>
+        <nav class="nav"> <a href="index.html">Trang chủ</a> <a href="courses.html" class="active">Khóa học</a> <a
+            href="mycourses.html">Khóa học của tôi</a> </nav>
+        <div class="auth"> <a href="login.html" id="loginLink">Đăng nhập</a> <a href="register.html"
+            id="registerLink">Đăng ký</a> <span id="userInfo" style="display:none;"> Xin chào, <b
+              id="usernameDisplay"></b> <button id="logoutBtn">Đăng xuất</button> </span> </div>
+      </div>
+    </div>
+  </header> <!-- Section: Course Filter -->
+  <section class="course-filter">
+    <div class="container">
+      <h1>Danh sách khóa học</h1>
+      <div class="filter-bar"> <input type="text" id="searchInput" placeholder="Tìm khóa học..." /> <select
+          id="categorySelect">
+          <option value="all">Tất cả</option>
+          <option value="laptrinh">Lập trình</option>
+          <option value="thietke">Thiết kế</option>
+          <option value="marketing">Marketing</option>
+        </select> </div>
+    </div>
+  </section> <!-- Section: Course List -->
+  <section class="course-list">
+    <div class="container">
+      <div id="courseContainer" class="course-grid"> <!-- JS sẽ render danh sách khóa học ở đây --> </div>
+    </div>
+  </section> <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Academy. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="./assets/js/script.js"></script>
+</body>
+
+</html>

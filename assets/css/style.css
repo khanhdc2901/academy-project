@@ -1,0 +1,562 @@
+/* ===========================
+   RESET + BIẾN TOÀN CỤC
+=========================== */
+:root {
+    --color-primary: #0066ff;
+    --color-dark: #1e1e2f;
+    --color-light: #ffffff;
+    --color-gray: #f5f6fa;
+    --color-text: #333;
+    --shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", "Lexend Deca", sans-serif;
+}
+
+body {
+    background-color: var(--color-gray);
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+.header {
+    background-color: var(--color-light);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header .container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: var(--color-dark);
+    font-weight: 500;
+    font-size: 15px;
+    transition: color 0.25s;
+}
+
+.nav a:hover,
+.nav a.active {
+    color: var(--color-primary);
+}
+
+.auth {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.auth a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+#userInfo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-dark);
+}
+
+#logoutBtn {
+    background: none;
+    border: 1px solid var(--color-primary);
+    border-radius: 4px;
+    color: var(--color-primary);
+    padding: 4px 10px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+#logoutBtn:hover {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+/* ===========================
+   CONTAINER
+=========================== */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 30px auto 50px;
+}
+
+/* ===========================
+   AUTH (Đăng nhập / Đăng ký)
+=========================== */
+.auth-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 160px);
+    background: var(--color-gray);
+    padding: 40px 0;
+}
+
+.auth-box {
+    background: var(--color-light);
+    padding: 40px 50px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 420px;
+}
+
+.auth-box h2 {
+    text-align: center;
+    color: var(--color-primary);
+    margin-bottom: 25px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.auth-box .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.auth-box label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--color-dark);
+    font-size: 15px;
+}
+
+.auth-box input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.auth-box input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+}
+
+.auth-box button.btn {
+    width: 100%;
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.auth-box button.btn:hover {
+    background-color: #004de0;
+}
+
+.auth-box p {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+.auth-box a {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.auth-box a:hover {
+    text-decoration: underline;
+}
+
+.auth-box .msg {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* ===========================
+   COURSE FILTER + CARD
+=========================== */
+.course-controls {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+    gap: 10px;
+}
+
+.course-controls input,
+.course-controls select {
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    width: 48%;
+    max-width: 300px;
+}
+
+/* GRID CHUẨN - đều hàng */
+#courseContainer,
+#myCoursesContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+/* CARD */
+.course-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--color-light);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: transform 0.25s ease;
+    overflow: hidden;
+    padding: 15px;
+}
+
+.course-card:hover {
+    transform: translateY(-4px);
+}
+
+.course-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.course-card h3 {
+    font-size: 17px;
+    margin: 12px 0 6px;
+    color: var(--color-dark);
+}
+
+.course-card p {
+    margin: 2px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+/* KHU VỰC NÚT */
+.course-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: auto;
+}
+
+/* Nút chung */
+.course-card .btn {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    min-height: 42px;
+    /* ✅ Giữ nút luôn cao đều nhau */
+}
+
+/* Nút xem chi tiết */
+.detail-btn {
+    background: var(--color-primary);
+    color: white;
+}
+
+.detail-btn:hover {
+    background: #004de0;
+}
+
+/* Nút đăng ký */
+.register-btn {
+    background: #28a745;
+    color: white;
+}
+
+.register-btn:hover {
+    background: #218838;
+}
+
+/* Nút đã đăng ký (✅ chỉnh đẹp hơn, đồng bộ chiều cao) */
+.registered-btn {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    cursor: not-allowed;
+    font-weight: 600;
+    text-align: center;
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.registered-btn::before {
+    content: "✔";
+    font-weight: bold;
+}
+
+/* Nút Xóa (ở trang MyCourses) */
+.course-card .btn.remove-btn {
+    background: #fff;
+    color: #d33;
+    border: 1px solid #f1a7a7;
+}
+
+.course-card .btn.remove-btn:hover {
+    background: #fdecec;
+}
+
+/* Đảm bảo bố cục đều */
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+
+/* ===========================
+   COURSE DETAIL
+=========================== */
+.course-detail {
+    padding: 60px 20px;
+}
+
+.detail-box {
+    background: var(--color-light);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.detail-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.detail-content img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 10px;
+}
+
+.detail-content .info {
+    flex: 1;
+    min-width: 280px;
+}
+
+.detail-content .info h2 {
+    color: var(--color-primary);
+    margin-bottom: 10px;
+}
+
+.detail-content .info .desc {
+    margin: 15px 0;
+    color: #555;
+}
+
+.detail-content .btn {
+    background: var(--color-primary);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.detail-content .btn:hover {
+    background: #004de0;
+}
+
+/* ===========================
+   HERO SECTION
+=========================== */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("https://images.unsplash.com/photo-1503676260728-1c00da094a0b") center/cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 120px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero .hero-content {
+    max-width: 700px;
+}
+
+.hero h1 {
+    font-size: 36px;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+
+.hero .highlight {
+    color: var(--color-primary);
+    background: white;
+    padding: 3px 8px;
+    border-radius: 5px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 25px;
+    color: #e8e8e8;
+}
+
+.hero .btn {
+    display: inline-block;
+    background: var(--color-primary);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 6px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.hero .btn:hover {
+    background: #004de0;
+}
+
+/* ===========================
+   FEATURES
+=========================== */
+.features {
+    background: var(--color-light);
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.features h2 {
+    font-size: 28px;
+    margin-bottom: 40px;
+    color: var(--color-dark);
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.feature-item {
+    background: var(--color-gray);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-4px);
+}
+
+.feature-item h3 {
+    color: var(--color-primary);
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.feature-item p {
+    color: #555;
+    font-size: 15px;
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+footer {
+    background: var(--color-dark);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 60px;
+    font-size: 14px;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 768px) {
+    .hero {
+        padding: 80px 20px;
+    }
+
+    .hero h1 {
+        font-size: 26px;
+    }
+
+    .features {
+        padding: 60px 15px;
+    }
+
+    .course-controls input,
+    .course-controls select {
+        width: 100%;
+    }
+
+    .detail-content {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-box {
+        padding: 30px 25px;
+    }
+}
+
+.registered-btn {
+    background-color: #4caf50 !important;
+    cursor: not-allowed;
+    opacity: 0.8;
+}

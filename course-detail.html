@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chi tiết khóa học - Academy</title>
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo">ACADEMY</a>
+        <nav class="nav">
+          <a href="index.html">Trang chủ</a>
+          <a href="courses.html" class="active">Khóa học</a>
+          <a href="mycourses.html">Khóa học của tôi</a>
+        </nav>
+        <div class="auth">
+          <a href="login.html" id="loginLink">Đăng nhập</a>
+          <a href="register.html" id="registerLink">Đăng ký</a>
+          <span id="userInfo" style="display:none;">
+            Xin chào, <b id="usernameDisplay"></b>
+            <button id="logoutBtn">Đăng xuất</button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Chi tiết khóa học -->
+  <section class="course-detail">
+    <div class="container">
+      <div id="courseDetailBox" class="detail-box">
+        <!-- JS sẽ render ở đây -->
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Academy. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="./assets/js/script.js"></script>
+</body>
+</html>

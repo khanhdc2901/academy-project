@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Khóa học của tôi - Academy</title>
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo">ACADEMY</a>
+        <nav class="nav">
+          <a href="index.html">Trang chủ</a>
+          <a href="courses.html">Khóa học</a>
+          <a href="mycourses.html" class="active">Khóa học của tôi</a>
+        </nav>
+        <div class="auth">
+          <a href="login.html" id="loginLink">Đăng nhập</a>
+          <a href="register.html" id="registerLink">Đăng ký</a>
+          <span id="userInfo" style="display:none;">
+            Xin chào, <b id="usernameDisplay"></b>
+            <button id="logoutBtn">Đăng xuất</button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Section: My Courses -->
+  <section class="my-courses">
+    <div class="container">
+      <h1>Khóa học của tôi</h1>
+      <div id="myCoursesContainer" class="course-grid">
+        <!-- JS sẽ render danh sách khóa học đã đăng ký -->
+      </div>
+      <p id="noCoursesMsg" class="msg" style="display:none;">Bạn chưa đăng ký khóa học nào.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Academy. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>

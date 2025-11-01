@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng nhập - Academy</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo">ACADEMY</a>
+        <nav class="nav">
+          <a href="index.html">Trang chủ</a>
+          <a href="courses.html">Khóa học</a>
+          <a href="mycourses.html">Khóa học của tôi</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="auth-section">
+    <div class="auth-box">
+      <h2>Đăng nhập</h2>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="loginEmail">Email</label>
+          <input type="email" id="loginEmail" required placeholder="Nhập email...">
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">Mật khẩu</label>
+          <input type="password" id="loginPassword" required placeholder="Nhập mật khẩu...">
+        </div>
+        <button type="submit" class="btn">Đăng nhập</button>
+        <p>Chưa có tài khoản? <a href="register.html">Đăng ký ngay</a></p>
+        <div id="loginMessage" class="msg"></div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Academy. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
