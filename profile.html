@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hồ sơ cá nhân - Academy</title>
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">ACADEMY</a>
+      <nav class="nav">
+        <a href="index.html">Trang chủ</a>
+        <a href="courses.html">Khóa học</a>
+        <a href="mycourses.html">Khóa học của tôi</a>
+        <a href="profile.html" class="active">Hồ sơ</a>
+      </nav>
+      <div class="auth">
+        <span id="userInfo" style="display:none;">
+          Xin chào, <b id="usernameDisplay"></b>
+          <button id="logoutBtn">Đăng xuất</button>
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <main class="profile-section">
+    <div class="profile-form-box">
+      <h2>Hồ sơ cá nhân</h2>
+      <form id="profileForm">
+        <div class="form-group">
+          <label for="profileName">Họ và tên</label>
+          <input type="text" id="profileName" required />
+        </div>
+
+        <div class="form-group">
+          <label for="profileEmail">Email</label>
+          <input type="email" id="profileEmail" required />
+        </div>
+
+        <div class="form-group">
+          <label for="profileCourses">Số khóa học đã đăng ký</label>
+          <input type="text" id="profileCourses" disabled />
+        </div>
+
+        <button type="submit" class="btn">💾 Lưu thay đổi</button>
+      </form>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Academy. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="./assets/js/script.js"></script>
+</body>
+</html>

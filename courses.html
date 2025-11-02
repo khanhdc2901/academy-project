@@ -20,17 +20,32 @@
       </div>
     </div>
   </header> <!-- Section: Course Filter -->
-  <section class="course-filter">
-    <div class="container">
-      <h1>Danh sách khóa học</h1>
-      <div class="filter-bar"> <input type="text" id="searchInput" placeholder="Tìm khóa học..." /> <select
-          id="categorySelect">
-          <option value="all">Tất cả</option>
-          <option value="laptrinh">Lập trình</option>
-          <option value="thietke">Thiết kế</option>
-          <option value="marketing">Marketing</option>
-        </select> </div>
-    </div>
+<div class="course-controls">
+  <input type="text" id="searchInput" placeholder="Tìm kiếm khóa học..." />
+  <select id="categorySelect">
+    <option value="all">Tất cả danh mục</option>
+    <option value="laptrinh">Lập trình</option>
+    <option value="thietke">Thiết kế</option>
+    <option value="marketing">Marketing</option>
+  </select>
+  <select id="teacherSelect">
+    <option value="all">Tất cả giảng viên</option>
+    <option value="Nguyễn An">Nguyễn An</option>
+    <option value="Trần Bình">Trần Bình</option>
+    <option value="Lê Mai">Lê Mai</option>
+    <option value="Phạm Duy">Phạm Duy</option>
+    <option value="Vũ Khang">Vũ Khang</option>
+    <option value="Hoàng Nam">Hoàng Nam</option>
+    <option value="Hà Minh">Hà Minh</option>
+    <option value="Ngọc Đức">Ngọc Đức</option>
+  </select>
+  <select id="priceSort">
+    <option value="none">Sắp xếp theo giá</option>
+    <option value="asc">Giá tăng dần</option>
+    <option value="desc">Giá giảm dần</option>
+  </select>
+</div>
+
   </section> <!-- Section: Course List -->
   <section class="course-list">
     <div class="container">

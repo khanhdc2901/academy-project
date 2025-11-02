@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Học Tập Trực Tuyến - Trang Chủ</title>
   <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
-<body>
 
+<body>
   <!-- Header -->
   <header class="header">
     <div class="container">
@@ -22,15 +23,16 @@
           <a href="login.html" id="loginLink">Đăng nhập</a>
           <a href="register.html" id="registerLink">Đăng ký</a>
           <span id="userInfo" style="display:none;">
-            Xin chào, <b id="usernameDisplay"></b>
-            <button id="logoutBtn">Đăng xuất</button>
-          </span>
+  Xin chào, <a href="profile.html" id="usernameDisplay" class="profile-link"></a>
+  <button id="logoutBtn">Đăng xuất</button>
+</span>
+
         </div>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section class="hero">
     <div class="container">
       <div class="hero-content">
@@ -41,7 +43,7 @@
     </div>
   </section>
 
-  <!-- Feature Section -->
+  <!-- Features -->
   <section class="features">
     <div class="container">
       <h2>Vì sao chọn Academy?</h2>
@@ -69,6 +71,19 @@
     </div>
   </footer>
 
-  <script src="assets/js/script.js"></script>
+  <!-- Popup nhỏ -->
+  <!-- Popup nhỏ -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <p id="popup-message"></p>
+    <div class="popup-buttons">
+      <button id="popup-ok" class="btn">OK</button>
+      <button id="popup-cancel" class="btn btn-cancel" style="display:none;">Hủy</button>
+    </div>
+  </div>
+</div>
+
+
+  <script src="./assets/js/script.js"></script>
 </body>
 </html>
