@@ -3,14 +3,14 @@ document.addEventListener("DOMContentLoaded", function () {
   // 1️⃣ Danh sách khóa học
   // -----------------------------
   const allCourses = [
-    { id: 1, title: "Lập trình Java cơ bản", category: "laptrinh", teacher: "Nguyễn An", price: "499.000đ", img: "https://picsum.photos/300/200?1", desc: "Học Java từ căn bản, cấu trúc và OOP." },
-    { id: 2, title: "Thiết kế UI/UX cho người mới", category: "thietke", teacher: "Trần Bình", price: "399.000đ", img: "https://picsum.photos/300/200?2", desc: "Nắm vững quy trình thiết kế trải nghiệm người dùng." },
-    { id: 3, title: "Digital Marketing toàn tập", category: "marketing", teacher: "Lê Mai", price: "599.000đ", img: "https://picsum.photos/300/200?3", desc: "Hiểu chiến lược tiếp thị số hiện đại." },
-    { id: 4, title: "HTML, CSS, JS từ Zero đến Hero", category: "laptrinh", teacher: "Phạm Duy", price: "459.000đ", img: "https://picsum.photos/300/200?4", desc: "Xây dựng trang web hoàn chỉnh với Frontend cơ bản." },
-    { id: 5, title: "ReactJS & Frontend nâng cao", category: "laptrinh", teacher: "Vũ Khang", price: "699.000đ", img: "https://picsum.photos/300/200?5", desc: "Học ReactJS, Component và state management." },
-    { id: 6, title: "Python cho người mới bắt đầu", category: "laptrinh", teacher: "Hoàng Nam", price: "499.000đ", img: "https://picsum.photos/300/200?6", desc: "Học cú pháp, logic, và ứng dụng cơ bản của Python." },
-    { id: 7, title: "Phân tích dữ liệu với Excel & Power BI", category: "marketing", teacher: "Hà Minh", price: "399.000đ", img: "https://picsum.photos/300/200?7", desc: "Trực quan hóa dữ liệu và tạo dashboard chuyên nghiệp." },
-    { id: 8, title: "Node.js & Express Backend cơ bản", category: "laptrinh", teacher: "Ngọc Đức", price: "579.000đ", img: "https://picsum.photos/300/200?8", desc: "Tạo server backend với Node.js và Express." },
+    { id: 1, title: "Lập trình Java cơ bản", category: "laptrinh", teacher: "Nguyễn An", price: "499.000đ", img: "assets/images/anh-1.jpg", desc: "Học Java từ căn bản, cấu trúc và OOP." },
+    { id: 2, title: "Thiết kế UI/UX cho người mới", category: "thietke", teacher: "Trần Bình", price: "399.000đ", img: "assets/images/anh-2.jpg", desc: "Nắm vững quy trình thiết kế trải nghiệm người dùng." },
+    { id: 3, title: "Digital Marketing toàn tập", category: "marketing", teacher: "Lê Mai", price: "599.000đ", img: "assets/images/anh-3.jpg", desc: "Hiểu chiến lược tiếp thị số hiện đại." },
+    { id: 4, title: "HTML, CSS, JS từ Zero đến Hero", category: "laptrinh", teacher: "Phạm Duy", price: "459.000đ", img: "assets/images/anh-4.jpg", desc: "Xây dựng trang web hoàn chỉnh với Frontend cơ bản." },
+    { id: 5, title: "ReactJS & Frontend nâng cao", category: "laptrinh", teacher: "Vũ Khang", price: "699.000đ", img: "assets/images/anh-5.jpg", desc: "Học ReactJS, Component và state management." },
+    { id: 6, title: "Python cho người mới bắt đầu", category: "laptrinh", teacher: "Hoàng Nam", price: "499.000đ", img: "assets/images/anh-6.jpg", desc: "Học cú pháp, logic, và ứng dụng cơ bản của Python." },
+    { id: 7, title: "Phân tích dữ liệu với Excel & Power BI", category: "marketing", teacher: "Hà Minh", price: "399.000đ", img: "assets/images/anh-7.jpg", desc: "Trực quan hóa dữ liệu và tạo dashboard chuyên nghiệp." },
+    { id: 8, title: "Node.js & Express Backend cơ bản", category: "laptrinh", teacher: "Ngọc Đức", price: "579.000đ", img: "assets/images/anh-8.jpg", desc: "Tạo server backend với Node.js và Express." },
   ];
 
   // -----------------------------
@@ -18,6 +18,12 @@ document.addEventListener("DOMContentLoaded", function () {
   // -----------------------------
   const getLS = (key) => JSON.parse(localStorage.getItem(key)) || [];
   const setLS = (key, val) => localStorage.setItem(key, JSON.stringify(val));
+
+  const getCourseIdList = (key) => {
+    const raw = JSON.parse(localStorage.getItem(key)) || [];
+    return raw.map(item => (typeof item === "object" && item.id ? item.id : item));
+  };
+  const setCourseIdList = (key, arr) => localStorage.setItem(key, JSON.stringify(arr));
 
   const getCurrentUser = () => JSON.parse(localStorage.getItem("current_user")) || null;
   const setCurrentUser = (u) => localStorage.setItem("current_user", JSON.stringify(u));
@@ -49,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
   updateHeaderAuth();
 
   // -----------------------------
-  // 4️⃣ Thông báo nổi (form nhỏ)
+  // 4️⃣ Thông báo nổi
   // -----------------------------
   function showNotify(message, type = "info") {
     let box = document.createElement("div");
@@ -104,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // -----------------------------
-  // 7️⃣ Hiển thị danh sách khóa học
+  // 7️⃣ Danh sách khóa học
   // -----------------------------
   const courseContainer = document.getElementById("courseContainer");
   if (courseContainer) {
@@ -115,12 +121,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function renderCourses(list) {
       const currentUser = getCurrentUser();
-      const userCourses = currentUser ? getLS(`my_courses_${currentUser.email}`) : [];
+      const userCourses = currentUser ? getCourseIdList(`my_courses_${currentUser.email}`) : [];
       courseContainer.innerHTML = "";
       list.forEach((c) => {
         const div = document.createElement("div");
         div.className = "course-card";
-        const isReg = userCourses.some((uc) => uc.id === c.id);
+        const isReg = userCourses.includes(c.id);
         div.innerHTML = `
           <img src="${c.img}" alt="${c.title}">
           <h3>${c.title}</h3>
@@ -148,10 +154,10 @@ document.addEventListener("DOMContentLoaded", function () {
           const id = parseInt(btn.dataset.id);
           const course = allCourses.find((x) => x.id === id);
           const key = `my_courses_${user.email}`;
-          const list = getLS(key);
-          if (list.some((x) => x.id === id)) return showNotify("Bạn đã đăng ký khóa này!", "error");
-          list.push(course);
-          setLS(key, list);
+          const list = getCourseIdList(key);
+          if (list.includes(id)) return showNotify("Bạn đã đăng ký khóa này!", "error");
+          list.push(id);
+          setCourseIdList(key, list);
           showNotify(`🎉 Đăng ký thành công: ${course.title}`, "success");
           btn.textContent = "Đã đăng ký";
           btn.disabled = true;
@@ -165,20 +171,14 @@ document.addEventListener("DOMContentLoaded", function () {
       const v = cat.value;
       const t = teacherSelect?.value || "all";
       const sort = priceSort?.value || "none";
-
       let filtered = allCourses.filter((c) => {
         const matchCategory = v === "all" || c.category === v;
         const matchTeacher = t === "all" || c.teacher === t;
         const matchSearch = c.title.toLowerCase().includes(s);
         return matchCategory && matchTeacher && matchSearch;
       });
-
-      if (sort === "asc") {
-        filtered.sort((a, b) => parseInt(a.price) - parseInt(b.price));
-      } else if (sort === "desc") {
-        filtered.sort((a, b) => parseInt(b.price) - parseInt(a.price));
-      }
-
+      if (sort === "asc") filtered.sort((a, b) => parseInt(a.price) - parseInt(b.price));
+      else if (sort === "desc") filtered.sort((a, b) => parseInt(b.price) - parseInt(a.price));
       renderCourses(filtered);
     }
 
@@ -186,7 +186,6 @@ document.addEventListener("DOMContentLoaded", function () {
     cat?.addEventListener("change", filterCourses);
     teacherSelect?.addEventListener("change", filterCourses);
     priceSort?.addEventListener("change", filterCourses);
-
     renderCourses(allCourses);
   }
 
@@ -198,20 +197,23 @@ document.addEventListener("DOMContentLoaded", function () {
     const user = getCurrentUser();
     if (!user) return showNotify("Vui lòng đăng nhập để xem khóa học của bạn!", "error");
     const key = `my_courses_${user.email}`;
-    let list = getLS(key);
     const msg = document.getElementById("noCoursesMsg");
 
     function renderMyCourses() {
       myCourses.innerHTML = "";
+      let list = getCourseIdList(key);
       if (!list.length) return (msg.style.display = "block");
       msg.style.display = "none";
-      list.forEach((c) => {
+
+      list.forEach((id) => {
+        const c = allCourses.find((x) => x.id === id);
+        if (!c) return;
         const div = document.createElement("div");
         div.className = "course-card";
         div.innerHTML = `
           <img src="${c.img}" alt="${c.title}">
           <h3>${c.title}</h3>
-          <p><b>Giảng viên:</b> ${c.teacher}</p>
+          <p><b>Giảng viên:</b> ${c.teacher}</p>  
           <p><b>Giá:</b> ${c.price}</p>
           <button class="btn remove-btn" data-id="${c.id}">Xóa</button>`;
         myCourses.appendChild(div);
@@ -220,8 +222,9 @@ document.addEventListener("DOMContentLoaded", function () {
       document.querySelectorAll(".remove-btn").forEach((btn) => {
         btn.onclick = () => {
           const id = parseInt(btn.dataset.id);
-          list = list.filter((c) => c.id !== id);
-          setLS(key, list);
+          let list = getCourseIdList(key);
+          list = list.filter((cid) => cid !== id);
+          setCourseIdList(key, list);
           renderMyCourses();
           showNotify("✅ Đã xóa khóa học!", "success");
         };
@@ -237,16 +240,13 @@ document.addEventListener("DOMContentLoaded", function () {
   if (detailBox) {
     const id = parseInt(localStorage.getItem("selected_course"));
     const course = allCourses.find((c) => c.id === id);
-    if (!course) {
-      detailBox.innerHTML = "<p>Không tìm thấy khóa học.</p>";
-      return;
-    }
+    if (!course) return detailBox.innerHTML = "<p>Không tìm thấy khóa học.</p>";
 
     const user = getCurrentUser();
     let isRegistered = false;
     if (user) {
-      const list = getLS(`my_courses_${user.email}`);
-      isRegistered = list.some((c) => c.id === id);
+      const list = getCourseIdList(`my_courses_${user.email}`);
+      isRegistered = list.includes(id);
     }
 
     detailBox.innerHTML = `
@@ -267,15 +267,15 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
 
     const registerBtn = document.getElementById("registerDetailBtn");
-    if (!isRegistered) {
+    if (!isRegistered && registerBtn) {
       registerBtn.addEventListener("click", () => {
         const user = getCurrentUser();
         if (!user) return showNotify("Vui lòng đăng nhập trước!", "error");
         const key = `my_courses_${user.email}`;
-        const list = getLS(key);
-        if (list.some((c) => c.id === id)) return showNotify("Bạn đã đăng ký khóa này!", "error");
-        list.push(course);
-        setLS(key, list);
+        const list = getCourseIdList(key);
+        if (list.includes(id)) return showNotify("Bạn đã đăng ký khóa này!", "error");
+        list.push(id);
+        setCourseIdList(key, list);
         showNotify(`🎉 Đăng ký thành công: ${course.title}`, "success");
         registerBtn.textContent = "Đã đăng ký";
         registerBtn.disabled = true;
@@ -284,7 +284,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // 🔟 Hồ sơ cá nhân (profile.html)
+  // 🔟 Hồ sơ cá nhân
   const profileForm = document.getElementById("profileForm");
   if (profileForm) {
     const user = getCurrentUser();
@@ -294,7 +294,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const key = `my_courses_${user.email}`;
-    const courses = getLS(key);
+    const courses = getCourseIdList(key);
     const nameInput = document.getElementById("profileName");
     const emailInput = document.getElementById("profileEmail");
     const courseCount = document.getElementById("profileCourses");
@@ -312,30 +312,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const users = getLS("academy_users");
       const idx = users.findIndex((u) => u.email === user.email);
-
       if (idx !== -1) {
         users[idx].name = newName;
         users[idx].email = newEmail;
         setLS("academy_users", users);
       }
 
-      // cập nhật current_user
+      const oldEmail = user.email;
       user.name = newName;
       user.email = newEmail;
       setCurrentUser(user);
 
-      // Nếu đổi email, đổi key my_courses
-      if (newEmail !== user.email) {
-        const oldKey = `my_courses_${user.email}`;
+      if (newEmail !== oldEmail) {
+        const oldKey = `my_courses_${oldEmail}`;
         const newKey = `my_courses_${newEmail}`;
-        const userCourses = getLS(oldKey);
+        const userCourses = getCourseIdList(oldKey);
         localStorage.removeItem(oldKey);
-        setLS(newKey, userCourses);
+        setCourseIdList(newKey, userCourses);
       }
 
-      showNotify(" Cập nhật hồ sơ thành công!", "success");
+      showNotify("✅ Cập nhật hồ sơ thành công!", "success");
       updateHeaderAuth();
     });
   }
-
 });
